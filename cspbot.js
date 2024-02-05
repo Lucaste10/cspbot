@@ -14,6 +14,10 @@
 // @supportURL      https://github.com/jfcandidofilho/cspbot/issues
 // ==/UserScript==
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 (function() { 'use strict';
 
     // Sets the poll. The total is the number of URLs or IDs in poll_config.
@@ -45,16 +49,14 @@
         // The list of poll's URLs (in order)
         url: [
 
-            "https://poll.fm/10641155", // CH AWARDS 2020 - Melhores Amigas
-            "https://poll.fm/10648838" // CH AWARDS 2020 - Fandom de 2020
+            "https://poll.fm/13310155"
 
         ],
 
         // List of IDs of the option desired in the polls (in order)
         vote_id: [ 
             
-            "PDI_answer49274973",   // CH AWARDS 2020 - Melhores Amigas
-            "PDI_answer49303197"    // CH AWARDS 2020 - Fandom de 2020
+            "PDI_answer59603299"
         
         ],
 
@@ -255,6 +257,9 @@
 
 
     // Calls the code to be executed!
-    cspbot();
+    for (let i = 0; i < 100; i++) {
+        cspbot();
+        sleep(1000)
+    }
     
 })();
